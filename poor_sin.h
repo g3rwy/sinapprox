@@ -1,14 +1,18 @@
+#pragma once
 #ifndef POOR_SIN_H
 #define POOR_SIN_H
+
 #include <math.h>
 
 #define PREC_TYPE double
 #ifndef PI
-  #define PI      3.1415926535
+  #define PI      3.1415926535f
 #endif
 #ifndef HALF_PI
-  #define HALF_PI 1.5707963267
+  #define HALF_PI 1.5707963267f
 #endif
+
+// Half function means that it uses only a half of cubic function, there is a full function implementation too, but it works a little bit worse
 #define HALF_FUNCTION 1
 #define FMOD(x,y) _Generic((x), float: fmodf, double: fmod)(x, y)
 
@@ -26,6 +30,7 @@ PREC_TYPE psin(PREC_TYPE x){
       ((normalized-1) * (normalized-1) * 1.02) - 1 :
       (((normalized-1) * (normalized-1)) * -1.02) + 1
       ;
+
 #else
   PREC_TYPE xmod = FMOD(x,PI);
   if(PI - xmod < 0.0005 || xmod < 0.002){ return 0.0; }

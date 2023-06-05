@@ -10,4 +10,5 @@ cd build
 cmake ..
 make
 ```
+If you want to compile a gui test and have raylib installed then add `-DRAYLIB=ON` to cmake<br>
 and it should build it, you can then run the sinapprox binary
